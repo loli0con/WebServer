@@ -42,3 +42,9 @@ python还支持AF_NETLINK和AF_TIPC家族，这两个都是Linux套接字，是L
 为了创建UDP套接字，必须使用SOCK_DGRAM作为套接字类型。
 > datagram ➡️ DGRAM
 
+## 代码
+|版本|说明|
+|-----|-----|
+|v0|模版|
+|v1|同步的tcp服务器|
+|v2|多线程的tcp服务器|
