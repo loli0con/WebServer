@@ -2,7 +2,7 @@ from socket import *
 from time import ctime
 
 HOST = ""
-PORT = 22223
+PORT = 22222
 BUFSIZ = 1024
 ADDR = (HOST, PORT)
 
