@@ -1,6 +1,6 @@
 from socket import *
 from time import ctime
-from threading import Thread
+from multiprocessing import Process
 
 HOST = ""
 PORT = 22222
@@ -20,7 +20,7 @@ class Server:
             while True:
                 tcp_client_socket, cli_addr = self.tcp_server_socket.accept()
                 print("...connected from:", cli_addr)
-                Thread(None, target=self.handle, args=(tcp_client_socket, cli_addr)).start()
+                Process(None, target=self.handle, args=(tcp_client_socket, cli_addr)).start()
         except KeyboardInterrupt:
             self.tcp_server_socket.close()
             exit()
