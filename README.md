@@ -50,3 +50,20 @@ python还支持AF_NETLINK和AF_TIPC家族，这两个都是Linux套接字，是L
 |v2|多线程的tcp服务器|
 |v3|多进程的tcp服务器|
 |v4|非阻塞的tcp服务器|
+|v5|select版的tcp服务器|
+
+## v5
+### 参考文章
+https://www.cnblogs.com/huchong/p/8613308.html  
+https://www.cnblogs.com/leijiangtao/p/11883310.html  
+https://blog.csdn.net/shy_hc/article/details/69950334  
+https://aceld.gitbooks.io/python/content/fu-wu-qi-mo-xing/select7248-tcp-fu-wu-qi.html  
+https://zhuanlan.zhihu.com/p/77275039
+
+### 碎碎念
+花了一点时间写select版本你的服务器，有点难度。
+期间还偶遇了一个关于tcp拆包的问题，其实也不算遇到，就是突然想起了。
+之前的模型都是"一问一答式"——客户端和服务器会等待对方，
+但我设想了一下客户端发数据*send*足够快，或者说比服务器收数据*recv*要快，这时候会发生什么情况？
+想到实际的收发数据是操作系统完成的，程序只是在读写缓冲区而已，所以可能会是"N问一答"。
+一开始想问别人，主要是不知道应该谷歌什么关键词，但是发现没人可问，就试试"tcp拆包"关键词，然后幸运地找到了答案。
